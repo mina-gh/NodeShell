@@ -1,0 +1,23 @@
+{
+  "name": "shell",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bash.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mina-gh/NodeShell.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mina-gh/NodeShell/issues"
+  },
+  "homepage": "https://github.com/mina-gh/NodeShell#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "node-modules": "^1.0.1"
+  }
+}
