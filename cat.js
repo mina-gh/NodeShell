@@ -1,7 +1,9 @@
 const fs = require('fs');
 
 module.exports = function cat(fileNames, done){
-  if (fileNames.length > 0){
+  if (fileNames.length === 0){
+    process.stdout.write('\nprompt > ');
+  } else {
     fs.readFile(fileNames[0], (err, data) => {
       if (err){
         done(err.stack);

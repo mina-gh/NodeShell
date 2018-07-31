@@ -6,9 +6,9 @@ const curl = require('./curl');
 process.stdout.write('prompt > ');
 
 process.stdin.on('data', (data) => {
-  let splitted = data.toString().trim().split(/\s+/);
+  const splitted = data.toString().trim().split(/\s+/);
   const cmd = splitted[0];
-  let args = splitted.slice(1);
+  const args = splitted.slice(1);
 
   let result;
   switch (cmd){
@@ -24,7 +24,7 @@ process.stdin.on('data', (data) => {
     case 'cat':
       cat(args, (filedata) => {
         process.stdout.write(filedata);
-        process.stdout.write('\nprompt > ');
+        process.stdout.write('\n');
       });
       break;
     case 'curl':
