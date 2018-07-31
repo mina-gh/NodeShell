@@ -8,7 +8,7 @@ process.stdout.write('prompt > ');
 process.stdin.on('data', (data) => {
   let splitted = data.toString().trim().split(/\s+/);
   const cmd = splitted[0];
-  let params = splitted.slice(1);
+  let args = splitted.slice(1);
 
   let result;
   switch (cmd){
@@ -22,13 +22,13 @@ process.stdin.on('data', (data) => {
       });
       break;
     case 'cat':
-      cat(params, (filedata) => {
+      cat(args, (filedata) => {
         process.stdout.write(filedata);
         process.stdout.write('\nprompt > ');
       });
       break;
     case 'curl':
-      curl(params[0], (body) => {
+      curl(args[0], (body) => {
         process.stdout.write(body);
         process.stdout.write('\nprompt > ');
       });
