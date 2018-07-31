@@ -1,6 +1,7 @@
-let pwd = require('./pwd');
-let ls = require('./ls');
-let cat = require('./cat');
+const pwd = require('./pwd');
+const ls = require('./ls');
+const cat = require('./cat');
+const curl = require('./curl');
 
 process.stdout.write('prompt > ');
 
@@ -23,6 +24,12 @@ process.stdin.on('data', (data) => {
     case 'cat':
       cat(params, (filedata) => {
         process.stdout.write(filedata);
+        process.stdout.write('\nprompt > ');
+      });
+      break;
+    case 'curl':
+      curl(params[0], (body) => {
+        process.stdout.write(body);
         process.stdout.write('\nprompt > ');
       });
       break;
