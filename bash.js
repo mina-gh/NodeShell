@@ -1,10 +1,13 @@
 let pwd = require('./pwd');
 let ls = require('./ls');
+let cat = require('./cat');
 
 process.stdout.write('prompt > ');
 
 process.stdin.on('data', (data) => {
-  const cmd = data.toString().trim();
+  let splitted = data.toString().trim().split(/\s+/);
+  const cmd = splitted[0];
+  let params = splitted.slice(1);
 
   let result;
   switch (cmd){
@@ -14,6 +17,12 @@ process.stdin.on('data', (data) => {
     case 'ls':
       result = ls((filenames) => {
         process.stdout.write(filenames);
+        process.stdout.write('\nprompt > ');
+      });
+      break;
+    case 'cat':
+      cat(params, (filedata) => {
+        process.stdout.write(filedata);
         process.stdout.write('\nprompt > ');
       });
       break;
