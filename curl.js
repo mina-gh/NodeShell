@@ -8,4 +8,5 @@ module.exports = function curl(url, done){
       done(body);
     }
   });
+  //console.log(request.get(url));
 };

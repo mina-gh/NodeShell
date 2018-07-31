@@ -34,7 +34,7 @@ process.stdin.on('data', (data) => {
       });
       break;
     default:
-      result = 'default';
+      result = "Haven't implemented a module to handle given command : " + cmd;
   }
 
   if (result){
